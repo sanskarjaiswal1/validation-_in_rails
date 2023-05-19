@@ -1,0 +1,19 @@
+<%# <h1>tasks for all</h1>
+<ul>
+<% @tasks.each do |ta|%>
+<%# <li><%=link_to ta.title,task_path(ta)</li> %>
+<%# <% end %>
+<%# </ul> %> 
+
+
+<table border:1>
+<% Task.all.each do |ta|%>
+
+<tr>
+<td><%= link_to    ta.title, task_path(ta) %></td>
+<td><%= button_to 'Edit',   edit_task_path(ta), method: 'get' %></td>
+<td><%= button_to 'Remove', task_path(ta), method: 'delete', data: {confirm: 'are you sure?'} %> </td>
+</tr>
+<% end %> I
+<%= link_to "add new task",new_task_path %>
+</table>

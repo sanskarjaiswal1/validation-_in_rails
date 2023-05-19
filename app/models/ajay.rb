@@ -1,0 +1,2 @@
+class Ajay < ApplicationRecord
+end

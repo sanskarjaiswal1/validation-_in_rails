@@ -1,0 +1,37 @@
+<h3>Create a task</h3>
+<%#= @task.errors.full_messages %>
+<%#= form_for @task do |f|%>
+    
+    <%#= f.text_field :title, placeholder: "Enter your task" %> <br> 
+    <%#= f.text_field :description, placeholder: "Enter your descritions" %> <br>
+    <%#= f.submit %>
+<%# end %>
+
+
+
+<%= form_with(model: @task) do |form| %>
+  <% if @task.errors.any? %>
+    <div style="color: green">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% @task.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <%= form.text_field :title, placeholder: "Enter your task" %> <br> 
+    <%= form.text_field :description, placeholder: "Enter your descritions" %> <br>
+
+   <%# <div>
+    <%= form.label :terms_of_services , style: "display: block" %>
+    <%# <%= form.check_box :terms_of_servi  %>
+  <%# </div> %>
+   <%# %> 
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
